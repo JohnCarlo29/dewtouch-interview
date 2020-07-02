@@ -20,7 +20,17 @@
  				</div>')
 		);?>
 
-<?php echo $this->Form->input('type', array('legend'=>false, 'type' => 'radio', 'options'=>$options_new,'before'=>'<label class="radio line notcheck">','after'=>'</label>' ,'separator'=>'</label><label class="radio line notcheck">'));?>
+<?php echo $this->Form->input(
+    'type', 
+    array(
+        'legend'=>false, 
+        'type' => 'radio', 
+        'options'=>$options_new,
+        'before'=>'<label class="radio line notcheck">',
+        'after'=>'</label>',
+        'separator'=>'</label><label class="radio line notcheck">'
+    )
+);?>
 
 
 <?php echo $this->Form->end();?>
@@ -50,17 +60,16 @@
 <?php $this->start('script_own')?>
 <script>
 
-$(document).ready(function(){
-	$(".dialog").dialog({
-		autoOpen: false,
-		width: '500px',
-		modal: true,
-		dialogClass: 'ui-dialog-blue'
-	});
-
-	
-	$(".showDialog").click(function(){ var id = $(this).data('id'); $("#"+id).dialog('open'); });
-
+$(document).ready(function(){	
+	$(".showDialog").popover({
+        container: 'body',
+		content: function() {
+			var dataId = $(this).data('id');
+			return $('#' + dataId).html();
+		},
+		trigger: 'hover',
+		html: true
+    });
 })
 
 
