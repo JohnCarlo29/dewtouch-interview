@@ -2,7 +2,7 @@
 <div id="message1">
 
 
-<?php echo $this->Form->create('Type',array('id'=>'form_type','type'=>'file','class'=>'','method'=>'POST','autocomplete'=>'off','inputDefaults'=>array(
+<?php echo $this->Form->create('Type',array('id'=>'form_type','url'=>'/format/q1_selected','type'=>'file','class'=>'','method'=>'POST','autocomplete'=>'off','inputDefaults'=>array(
 				
 				'label'=>false,'div'=>false,'type'=>'text','required'=>false)))?>
 	
@@ -32,8 +32,7 @@
     )
 );?>
 
-
-<?php echo $this->Form->end();?>
+<?php echo $this->Form->end(array('label' => 'Save'));?>
 
 </div>
 
